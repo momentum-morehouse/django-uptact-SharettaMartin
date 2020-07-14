@@ -1,5 +1,5 @@
 from django import forms
-from .models import Contact
+from .models import Contact, Note
 import datetime
 
 
@@ -23,7 +23,10 @@ class ContactForm(forms.ModelForm):
         }
 
 # This will display the birthdate in output.
-class DateForm(forms.Form):
-   day = forms.DateField(initial=datetime.date.today)
-print(DateForm())
+#3.1        
+class NoteForm(forms.ModelForm):
+    class Meta:
+        model = Note
+        fields = ["text"]
+
  
